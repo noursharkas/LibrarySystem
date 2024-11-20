@@ -1,0 +1,71 @@
+﻿@model IEnumerable<cairo_library.Models.books>
+
+@{
+    ViewData["Title"] = "Getallbooks";
+}
+
+<h1>    futurelibrary            </h1>
+
+<p>
+    <a asp-action="ADDBOOK" style="color:red">Add newbook</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+          Bookname             
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                Serialnumber
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bublishdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.checkoutsid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+             
+           Book </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isbn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bublishdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.checkoutsid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

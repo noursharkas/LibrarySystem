@@ -1,0 +1,65 @@
+﻿@model IEnumerable<cairo_library.Models.checkout>
+
+@{
+    ViewData["Title"] = "Getallcheckoutbooks";
+}
+
+<h1>Getallcheckoutbooks</h1>
+
+<p>
+    <a asp-action="Getallcheckoutbooks">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.member)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Librarian_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Checkout_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Due_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Penality_amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Return_date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.member.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Librarian_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Checkout_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Due_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Penality_amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Return_date)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

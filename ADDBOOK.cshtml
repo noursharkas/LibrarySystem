@@ -1,0 +1,65 @@
+﻿@model cairo_library.Models.books
+
+@{
+    ViewData["Title"] = "Add newbook";
+}
+
+<h1>Futurelibrary</h1>
+
+<h4>New</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="creat">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Isbn" class="control-label"></label>
+                <input asp-for="Isbn" class="form-control" />
+                <span asp-validation-for="Isbn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                <input asp-for="Genre" class="form-control" />
+                <input asp-for="Genre" class="form-control" />
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bublishdate" class="control-label"></label>
+                <input asp-for="Bublishdate" class="form-control" />
+
+                <span asp-validation-for="Bublishdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="checkoutsid" class="control-label"></label>
+                <input asp-for="checkoutsid" class="form-control" />
+                <span asp-validation-for="checkoutsid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
